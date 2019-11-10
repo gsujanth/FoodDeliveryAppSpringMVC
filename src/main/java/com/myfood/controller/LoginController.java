@@ -51,7 +51,7 @@ public class LoginController {
 			return model;
 		}
 		else{
-			return new ModelAndView("redirect:/views/login.jsp");
+			return new ModelAndView("redirect:/view/login.jsp");
 		}
 	}
 
@@ -98,7 +98,7 @@ public class LoginController {
 			session.setAttribute("restaurantId",restaurantService.getResIdByRestaurantOwnerId(customerId));
 		}
 		else{
-			redirect = "redirect:/views/login.jsp";
+			redirect = "redirect:/view/login.jsp";
 			model = new ModelAndView(redirect);
 			model.addObject("errorMsg", "Login Failed.");
 		}
@@ -142,7 +142,7 @@ public class LoginController {
 			model.addObject("customerId", customerId);
 		}
 		else{
-			redirect = "redirect:/views/login.jsp";
+			redirect = "redirect:/view/login.jsp";
 			model = new ModelAndView(redirect);
 			session.setAttribute("customerId", null);
 			session.setAttribute("userRole", null);
@@ -155,7 +155,7 @@ public class LoginController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public ModelAndView logout(final RedirectAttributes redirectAttributes,
 			HttpSession session){
-		String redirect = "redirect:/views/login.jsp";
+		String redirect = "redirect:/view/login.jsp";
 		ModelAndView model = new ModelAndView(redirect);
 		session.setAttribute("customerId", null);
 		session.setAttribute("userRole", null);
@@ -181,11 +181,16 @@ public class LoginController {
 		modelOne = new ModelAndView("homeUser");
 		modelOne.addObject("myOrdersList", myOrdersList);
 		}else{
-			modelOne = new ModelAndView("redirect:/views/login.jsp");
+			modelOne = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return modelOne;
 	}*/
 	
 	//onclick="location.href='${userActionUrl}/${o.orderId}'"
 	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login(){
+		
+		return "login";
+	}
 }

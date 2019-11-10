@@ -63,7 +63,7 @@ public class RestaurantController {
 			modelOne = new ModelAndView("ViewRestaurants");
 			modelOne.addObject("restaurantList", restaurantsList);
 		} else {
-			modelOne = new ModelAndView("redirect:/views/login.jsp");
+			modelOne = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return modelOne;
 	}
@@ -78,7 +78,7 @@ public class RestaurantController {
 			// ModelAndView model = new ModelAndView("homeAdmin");
 			redirectAttributes.addFlashAttribute("SuccessMsg", "Restaurant Deleted Successfully.");
 		} else {
-			new ModelAndView("redirect:/views/login.jsp");
+			new ModelAndView("redirect:/view/login.jsp");
 		}
 		return new ModelAndView("redirect:/ViewRestaurants/");
 	}
@@ -92,7 +92,7 @@ public class RestaurantController {
 			model = new ModelAndView("AddRestaurant");
 			model.addObject("restaurant", restaurant);
 		} else {
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}
@@ -115,7 +115,7 @@ public class RestaurantController {
 				redirectAttributes.addFlashAttribute("SuccessMsg", "Restaurant Saved Successfully.");
 			}
 		} else {
-			new ModelAndView("redirect:/views/login.jsp");
+			new ModelAndView("redirect:/view/login.jsp");
 		}
 		return new ModelAndView("redirect:/AddRestaurant/");
 	}

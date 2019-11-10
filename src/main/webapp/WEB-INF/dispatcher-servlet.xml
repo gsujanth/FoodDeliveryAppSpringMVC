@@ -19,11 +19,15 @@
 	<mvc:annotation-driven />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
-		in the /WEB-INF/views directory -->
+		in the /WEB-INF/view directory -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
+		<property name="prefix">
+			<value>/WEB-INF/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
 	</bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">

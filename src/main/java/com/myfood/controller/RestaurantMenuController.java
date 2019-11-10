@@ -106,7 +106,7 @@ public class RestaurantMenuController {
 		modelOne = new ModelAndView("viewMenuItems");
 		modelOne.addObject("resMenuItems", resMenuItems);
 		}else{
-			modelOne = new ModelAndView("redirect:/views/login.jsp");
+			modelOne = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return modelOne;
 	}

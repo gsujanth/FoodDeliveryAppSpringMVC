@@ -114,7 +114,7 @@ public class OrderController {
 		modelOne = new ModelAndView("viewOrders");
 		modelOne.addObject("ordersList", ordersList);
 		}else{
-			modelOne = new ModelAndView("redirect:/views/login.jsp");
+			modelOne = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return modelOne;
 	}
@@ -139,7 +139,7 @@ public class OrderController {
 			model.addObject("totalItemsCost", totalItemsCost);
 			model.addObject("orderId",id);
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}
@@ -173,7 +173,7 @@ public class OrderController {
 			model.addObject("orderId",id);
 			model.addObject("comments", comments);
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}
@@ -207,7 +207,7 @@ public class OrderController {
 			model.addObject("hh", hh);
 			model.addObject("mm",mm);
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}
@@ -222,7 +222,7 @@ public class OrderController {
 			System.out.println("inside controller");
 			model = new ModelAndView("viewOrders");
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}
@@ -275,7 +275,7 @@ public class OrderController {
 		model = new ModelAndView("TrackOrder");
 		model.addObject("myOrderDetails", myOrderDetails); 
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}

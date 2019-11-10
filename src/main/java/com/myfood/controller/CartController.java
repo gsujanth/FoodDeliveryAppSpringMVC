@@ -66,7 +66,7 @@ public class CartController {
 			model.addObject("cartSize", cartItems.size());
 			model.addObject("totalItemsCost", totalItemsCost);
 		}else{
-			model = new ModelAndView("redirect:/views/login.jsp");
+			model = new ModelAndView("redirect:/view/login.jsp");
 		}
 		return model;
 	}

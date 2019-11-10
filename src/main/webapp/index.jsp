@@ -8,7 +8,7 @@
 <title>Index page</title>
 </head>
 <body>
-<a href="/WEB-INF/views/login.jsp"></a>
+<a href="/myfood/login">Log In</a>
 
 <c:url value="/menuList" var="showMenuUrl" />
 <button class="btn btn-info" onclick="location.href='${showMenuUrl}/1'">Show Menu</button>
