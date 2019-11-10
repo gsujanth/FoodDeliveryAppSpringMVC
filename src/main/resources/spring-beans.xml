@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	                    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	                    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<import resource="hibernate-cfg.xml" />
+	
+	<bean id="restaurantMenuDao" class="com.myfood.daoImpl.RestaurantMenuDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="restaurantMenuService" class="com.myfood.serviceImpl.RestaurantMenuServiceImpl">
+		<property name="restaurantMenuDao" ref="restaurantMenuDao" />
+	</bean>
+	
+	<bean id="restaurantMenuController" class="com.myfood.controller.RestaurantMenuController">
+		<property name="restaurantMenuService" ref="restaurantMenuService" />
+	</bean>
+	
+	<bean id="customerDao" class="com.myfood.daoImpl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="customerService" class="com.myfood.serviceImpl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao" />
+	</bean>
+	
+	<bean id="customerController" class="com.myfood.controller.CustomerController">
+		<property name="customerService" ref="customerService" />
+	</bean>
+	
+	<bean id="registerController" class="com.myfood.controller.RegisterController">
+		<property name="customerService" ref="customerService" />
+	</bean>
+	
+	<bean id="restaurantDao" class="com.myfood.daoImpl.RestaurantDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="restaurantService" class="com.myfood.serviceImpl.RestaurantServiceImpl">
+		<property name="restaurantDao" ref="restaurantDao" />
+	</bean>
+	
+	<bean id="restaurantController" class="com.myfood.controller.RestaurantController">
+		<property name="restaurantService" ref="restaurantService" />
+	</bean>
+	
+	<bean id="foodCartDao" class="com.myfood.daoImpl.FoodCartDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="cartService" class="com.myfood.serviceImpl.CartServiceImpl">
+		<property name="restaurantMenuDao" ref="restaurantMenuDao" />
+		<property name="foodCartDao" ref="foodCartDao" />
+	</bean>
+	
+	<bean id="cartController" class="com.myfood.controller.CartController">
+		<property name="cartService" ref="cartService" />
+	</bean>
+	
+	<bean id="orderController" class="com.myfood.controller.OrderController">
+		<property name="cartService" ref="cartService" />
+		<property name="orderService" ref="orderService" />
+	</bean>
+	
+	<bean id="orderService" class="com.myfood.serviceImpl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao" />
+		<property name="foodCartDao" ref="foodCartDao" />
+		<property name="paymentInfoDao" ref="paymentInfoDao" />
+		<property name="deliveryInfoDao" ref="deliveryInfoDao" />
+	</bean>
+	
+	<bean id="orderDao" class="com.myfood.daoImpl.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="paymentInfoDao" class="com.myfood.daoImpl.PaymentInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="deliveryInfoDao" class="com.myfood.daoImpl.DeliveryInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+</beans>
